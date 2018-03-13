@@ -12,6 +12,7 @@ namespace _20180313goal_gomoku
 {
     public partial class Form1 : Form
     {
+        private Game game = new Game();
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +21,35 @@ namespace _20180313goal_gomoku
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Pieces pieces = game.PlacePieces(e.X, e.Y);
+            this.Controls.Add(pieces);
+            if (game.Winner == PiecesType.BLACK)
+            {
+                MessageBox.Show("黑色獲勝");
+                this.Close();
+            }
+
+            else if (game.Winner == PiecesType.WHITE)
+            {
+                MessageBox.Show("白色獲勝");
+                this.Close();
+            }
+                
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (game.CanBePlaced(e.X, e.Y))
+            {
+                this.Cursor = Cursors.Hand;
+            }
+            else {
+                this.Cursor = Cursors.Default;
+            }
         }
     }
 }

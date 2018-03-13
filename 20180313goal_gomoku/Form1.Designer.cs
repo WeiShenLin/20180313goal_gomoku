@@ -34,10 +34,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.BackgroundImage = global::_20180313goal_gomoku.Properties.Resources.board;
+            this.ClientSize = new System.Drawing.Size(734, 711);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Gomoku";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
 
         }
