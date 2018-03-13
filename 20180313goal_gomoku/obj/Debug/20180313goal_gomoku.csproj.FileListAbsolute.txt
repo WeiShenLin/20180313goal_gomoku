@@ -1,0 +1,9 @@
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\bin\Debug\20180313goal_gomoku.exe.config
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\bin\Debug\20180313goal_gomoku.exe
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\bin\Debug\20180313goal_gomoku.pdb
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\obj\Debug\20180313goal_gomoku.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\obj\Debug\_20180313goal_gomoku.Form1.resources
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\obj\Debug\_20180313goal_gomoku.Properties.Resources.resources
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\obj\Debug\20180313goal_gomoku.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\obj\Debug\20180313goal_gomoku.exe
+c:\users\user\documents\visual studio 2015\Projects\20180313goal_gomoku\20180313goal_gomoku\obj\Debug\20180313goal_gomoku.pdb
