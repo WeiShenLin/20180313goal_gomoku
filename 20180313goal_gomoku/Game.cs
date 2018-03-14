@@ -8,6 +8,7 @@ namespace _20180313goal_gomoku
 {
     class Game
     {
+        
         private PiecesType currentPlayer = PiecesType.BLACK;
         private Board board = new Board();
         private PiecesType winner = PiecesType.NONE;
@@ -35,63 +36,38 @@ namespace _20180313goal_gomoku
             }
             return null;
         }
+        public int CheckCount(int x,int y, int xDir ,int yDir) {
+            int count = 1 ;
+            while (count < 5)
+            {
+                int targetX = x + count * xDir;
+                int targetY = y + count * yDir;
+                if (targetX < 0 || targetX >= Board.NODE_COUNT ||
+                     targetY < 0 || targetY >= Board.NODE_COUNT ||
+                     board.GetPiecesType(targetX, targetY) != currentPlayer)
+                    break;
+                count++;
+            }
+            return count;
+        }
         private void CheckWinner() {
             int centerX = board.LastPlaseNode.X;
             int centerY = board.LastPlaseNode.Y;
-            int count = 1;
-            int num = 1;
-
-            for (int xDir = -1; xDir <= 0; xDir++)
+            int[] num = new int[8];
+            int i = 0;
+            for (int xDir = -1; xDir <= 1; xDir++)
                 for (int yDir = -1; yDir <= 1; yDir++) {
-                    if (xDir == 0 && (yDir == 0||yDir == 1)) continue;
-                    
-                    bool EndR = false;
-                    bool EndL = false;
-                    while (count < 5)
-                    {
-                        int targetXR = centerX + count * xDir;
-                        int targetYR = centerY + count * yDir;
-                        int targetXL = centerX - count * xDir;
-                        int targetYL = centerY - count * yDir;
-                        if ((targetXR < 0 || targetXR >= Board.NODE_COUNT ||
-                             targetYR < 0 || targetYR >= Board.NODE_COUNT ||
-                             board.GetPiecesType(targetXR, targetYR) != currentPlayer) &&
-                             (targetXL < 0 || targetXL >= Board.NODE_COUNT ||
-                             targetYL < 0 || targetYL >= Board.NODE_COUNT ||
-                             board.GetPiecesType(targetXL, targetYL) != currentPlayer))
-                            break;
-
-                        if (!(targetXR < 0 || targetXR >= Board.NODE_COUNT ||
-                             targetYR < 0 || targetYR >= Board.NODE_COUNT ||
-                             board.GetPiecesType(targetXR, targetYR) != currentPlayer))
-                        {
-                            if (EndR == false) num++;
-                        }
-                        else {
-                            EndR = true;
-                        }
-
-                        if (!(targetXL < 0 || targetXL >= Board.NODE_COUNT ||
-                             targetYL < 0 || targetYL >= Board.NODE_COUNT ||
-                             board.GetPiecesType(targetXL, targetYL) != currentPlayer))
-                        {
-                            if (EndL == false) num++;
-                        }
-                        else {
-                            EndL = true;
-                        }
-                            
-                        count++;
-                        
-                    }
-                    if (num == 5)
-                    {
-                        winner = currentPlayer;
-                        //winner = board.GetPiecesType(board.LastPlaseNode.X, board.LastPlaseNode.Y);         
-                    }
+                    if (xDir == 0 && yDir == 0) continue;
+                    num[i]=CheckCount(centerX,centerY,xDir,yDir);
+                    i++;    
                 }
 
-                
+            if ((num[0]+num[7])>5|| (num[1] + num[6])> 5|| (num[2] + num[5])> 5|| (num[3] + num[4])> 5)
+            {
+                winner = currentPlayer;
+                //winner = board.GetPiecesType(board.LastPlaseNode.X, board.LastPlaseNode.Y);         
+            }
+
         }
     }
 }
